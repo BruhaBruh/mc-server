@@ -16,5 +16,9 @@ COPY --chmod=755 ./scripts/ /scripts/
 # Install required packages
 RUN /scripts/install-packages.sh
 
+COPY --chmod=755 ./scripts/mccmd.sh /usr/local/bin/mccmd
+
+RUN mkfifo /mcsocket
+
 # Start
 CMD /scripts/start.sh

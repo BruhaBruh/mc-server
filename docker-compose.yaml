@@ -1,18 +1,20 @@
 version: "3"
 
 services:
-  velocity:
-    build: .
-    ports:
-      - 25565:25577
-    networks:
-      - minecraft_network
-    environment:
-      SERVER: velocity
-    volumes:
-      - velocity-data:/data
+  # velocity:
+  #   build: .
+  #   ports:
+  #     - 25565:25577
+  #   networks:
+  #     - minecraft_network
+  #   environment:
+  #     SERVER: velocity
+  #   volumes:
+  #     - velocity-data:/data
   paper:
     build: .
+    ports:
+      - 25565:25565
     networks:
       - minecraft_network
     environment:
@@ -21,13 +23,13 @@ services:
       - paper-data:/data
 
 volumes:
-  velocity-data:
-    external: false
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      device: ./.data/velocity
+  # velocity-data:
+  #   external: false
+  #   driver: local
+  #   driver_opts:
+  #     type: none
+  #     o: bind
+  #     device: ./.data/velocity
   paper-data:
     external: false
     driver: local
